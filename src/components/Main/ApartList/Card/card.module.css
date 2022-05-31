@@ -1,0 +1,56 @@
+.card {
+  max-width: 395px;
+  min-width: 300px;
+  margin-bottom: 50px;
+  display: inline-block;
+}
+
+.image {
+  width: 100%;
+}
+
+.superHost {
+  margin-right: 11px;
+  display: inline-block;
+  box-sizing: border-box;
+  border: 1px solid #4f4f4f;
+  border-radius: 12px;
+  width: fit-content;
+}
+
+.superHostText {
+  padding: 7px 10px 6px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  text-transform: uppercase;
+}
+
+.type {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #828282;
+}
+
+.rating {
+  float: right;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #4f4f4f;
+}
+
+.title {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+}
