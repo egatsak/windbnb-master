@@ -29,11 +29,11 @@ const shortenText = (text:string, limit:number) => {
 const Card: FC<ApartItemProps> = ({ apart }) => {
   return (
     <div className={styles.card}>
-      <img src={apart.photo} alt="foto" className={styles.image} />
-      {apart.superHost && <div className={styles.superHost}><span className = {styles.superHostText}>Super Host</span></div>}
+     <div className={styles.imgWrapper}> <img src={apart.photo} alt="foto" className={styles.image} /> </div>
+      <div className = {styles.infoWrapper}>{apart.superHost && <div className={styles.superHost}><span className = {styles.superHostText}>Super Host</span></div>}
       <span className={styles.type}>{apart.type} {apart.beds&&'. '+apart.beds+' beds'}</span>
-      <span className={styles.rating}>{apart.rating}</span>
-      <p className={styles.title}>{shortenText(apart.title,45)}</p>
+      <span className={styles.rating}>{apart.rating}</span></div>
+      <p className={styles.title}>{shortenText(apart.title,41)}</p>
     </div>
   );
 };

@@ -1,0 +1,10 @@
+.header {
+    flex: 0 0 auto;
+    display: inline-block;
+    margin-top: 32px;
+}
+.logo {
+}
+.inputForm {
+    float: right;
+}

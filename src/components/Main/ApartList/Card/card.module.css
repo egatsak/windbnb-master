@@ -1,12 +1,24 @@
 .card {
   max-width: 395px;
-  min-width: 300px;
-  margin-bottom: 50px;
-  display: inline-block;
+  min-width: 380px;
+  margin-bottom: 30px;
+}
+
+.imgWrapper {
+  margin: 0;
+  width: 100%;
+  height: 250px;
 }
 
 .image {
+  border-radius: 24px;
+  object-fit: cover;
   width: 100%;
+  height: 100%;
+}
+
+.infoWrapper {
+  margin-top: 3px;
 }
 
 .superHost {
@@ -15,7 +27,7 @@
   box-sizing: border-box;
   border: 1px solid #4f4f4f;
   border-radius: 12px;
-  width: fit-content;
+  /*   width: fit-content; */
 }
 
 .superHostText {
@@ -48,6 +60,7 @@
 }
 
 .title {
+    margin-top: 5px;
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 600;

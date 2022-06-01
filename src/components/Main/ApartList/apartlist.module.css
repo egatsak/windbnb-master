@@ -1,12 +1,13 @@
 .list {
     list-style: none;
-    padding: 0;
+    flex-wrap: wrap;
     display: flex;
-    flex-direction: column;
-    max-inline-size: 395px;
+    padding-left: 0;
+    justify-content: space-around;
 }
 
 .li{
-    display: flex;
-    justify-content: space-around;
+    flex: 0 0 28%;
+    margin-left: 2px;
+    margin-right: 2px;
 }
