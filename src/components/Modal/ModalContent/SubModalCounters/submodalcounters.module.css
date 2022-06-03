@@ -1,0 +1,9 @@
+.wrapper {
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper.active {
+  opacity: 1;
+}

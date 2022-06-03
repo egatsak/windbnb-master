@@ -10,3 +10,11 @@ export interface IApart {
   beds: number | null;
   photo: string;
 }
+export interface ICardProps {
+    city: string;
+    guests: number;
+    kids: number;
+  }
+
+
+
