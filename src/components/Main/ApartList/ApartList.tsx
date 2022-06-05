@@ -1,14 +1,16 @@
 import React from "react";
-import { IApart, ICardProps } from "../../../types/types";
+
 import Card from "./Card/Card";
+
+import { IApart } from "../../../types/types";
+
 import styles from "./apartlist.module.css";
 
-interface ApartListProps {
+type Props = {
   aparts: IApart[];
-  filters: ICardProps;
 }
 
-const ApartList: React.FC<ApartListProps> = ({ aparts, filters }) => {
+const ApartList: React.FC<Props> = ({ aparts }) => {
   return ( <>
     <ul className={styles.list}>
         {aparts.map((apart) => (

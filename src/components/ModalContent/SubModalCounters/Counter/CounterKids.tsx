@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ICardProps } from "../../../../../types/types";
+import { ICardProps } from "../../../../types/types";
 import styles from "./counter.module.css";
 
 type Props = {
