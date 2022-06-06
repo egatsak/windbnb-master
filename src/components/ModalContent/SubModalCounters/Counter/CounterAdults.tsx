@@ -10,7 +10,7 @@ type Props = {
 const Counter: React.FC<Props> = ({ filters, setFilters }) => {
   return (
     <div className={styles.counterWrapper}>
-      <button
+      <button className={styles.button}
         onClick={() => {
           if (filters.guests === 1) {
             setFilters((filters) => ({
@@ -27,10 +27,10 @@ const Counter: React.FC<Props> = ({ filters, setFilters }) => {
           }
         }}
       >
-        -
+        {'\u2013'}
       </button>
-      {filters.guests}
-      <button
+      <span className = {styles.count}>{filters.guests}</span>
+      <button className={styles.button}
         onClick={() => {
           setFilters((filters) => ({ ...filters, guests: filters.guests + 1 }));
         }}

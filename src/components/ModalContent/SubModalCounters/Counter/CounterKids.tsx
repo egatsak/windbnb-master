@@ -12,16 +12,18 @@ const CounterKids: React.FC<Props> = ({ filters, setFilters }) => {
   return (
     <div className={styles.counterWrapper}>
       <button
+        className={styles.button}
         onClick={() => {
           if (filters.kids > 0) {
             setFilters((filters) => ({ ...filters, kids: filters.kids - 1 }));
           }
         }}
       >
-        -
+        {"\u2013"} 
       </button>
-      {filters.kids}
+      <span className={styles.count}>{filters.kids}</span>
       <button
+        className={styles.button}
         onClick={() => {
           if (filters.guests > 0) {
             setFilters((filters) => ({ ...filters, kids: filters.kids + 1 }));

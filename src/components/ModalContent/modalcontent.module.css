@@ -1,5 +1,50 @@
+* {
+  box-sizing: border-box;
+}
 .formWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
   background: #ffffff;
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
+  height: 55px;
+}
+
+.cityInput {
+  flex: 1 1 auto;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  height: 100%;
+}
+.cityInput.active {
+  border: 1px solid #333333;
+}
+
+.guestInput {
+  flex: 1 1 auto;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  height: 100%;
+}
+
+.guestInput.active {
+  border: 1px solid #333333;
+}
+
+.buttonWrapper {
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+  flex: 1 1 auto;
+  align-items: center;
+  box-sizing: border-box;
+  height: 100%;
 }

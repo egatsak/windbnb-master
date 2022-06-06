@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import Counter from "./SubModalCounters/Counter/CounterAdults";
-import CounterKids from "./SubModalCounters/Counter/CounterKids";
 import SubModalCounters from "./SubModalCounters/SubModalCounters";
 import SubModalCity from "./SubModalCity/SubModalCity";
 
@@ -24,10 +22,16 @@ const ModalContent: React.FC<Props> = ({
 }) => {
   const [isCityTabOpen, setCityTabOpen] = useState<boolean>(true);
   const [isGuestsTabOpen, setGuestsTabOpen] = useState<boolean>(false);
-  
+
   const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!citiesSet.has(filters.city + new RegExp(`/+[a-z]*/`,`gi`))) {
+    if (
+      !Array.from(citiesSet).some(
+        (city) =>
+          city.slice(0, filters.city.length).toLowerCase() ===
+          filters.city.toLowerCase()
+      )
+    ) {
       console.log("incorrect city!");
     } else if (filters.city === "" || filters.guests === 0) {
       console.log("empty input!");
@@ -41,13 +45,14 @@ const ModalContent: React.FC<Props> = ({
       <div className={styles.formWrapper}>
         <form onSubmit={onSubmitHandler}>
           <input
+            className={styles.cityInput}
             id="inputCity"
             value={filters.city}
             type="text"
             placeholder="Add location"
             onFocus={() => {
-              setCityTabOpen(/* (isCityTabOpen) => */ true);
-              setGuestsTabOpen(/* (isGuestsTabOpen) =>  */ false);
+              setCityTabOpen(true);
+              setGuestsTabOpen(false);
             }}
             onChange={(e) => {
               console.log(e.target.value);
@@ -56,6 +61,7 @@ const ModalContent: React.FC<Props> = ({
           />
           <input
             id="inputGuests"
+            className={styles.guestInput}
             type="text"
             placeholder="Add guests"
             value={
@@ -64,18 +70,23 @@ const ModalContent: React.FC<Props> = ({
                 : "Add guests"
             }
             onFocus={() => {
-              setCityTabOpen(/* (isCityTabOpen) =>  */ false);
-              setGuestsTabOpen(/* (isGuestsTabOpen) =>  */ true);
+              setCityTabOpen(false);
+              setGuestsTabOpen(true);
             }}
           />
           <input type="submit" />
         </form>
       </div>
-      <SubModalCity isCityTabOpen={isCityTabOpen} />
-      <SubModalCounters isGuestsTabOpen={isGuestsTabOpen}>
-        <Counter filters={filters} setFilters={setFilters} />
-        <CounterKids filters={filters} setFilters={setFilters} />
-      </SubModalCounters>
+      {isCityTabOpen && (
+        <SubModalCity filters={filters} isCityTabOpen={isCityTabOpen} />
+      )}
+      {isGuestsTabOpen && (
+        <SubModalCounters
+          isGuestsTabOpen={isGuestsTabOpen}
+          filters={filters}
+          setFilters={setFilters}
+        />
+      )}
     </div>
   );
 };

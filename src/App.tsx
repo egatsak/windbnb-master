@@ -25,7 +25,7 @@ const App: React.FC = () => {
       >
         <ModalContent filters={filters} setFilters={setFilters} isModalOpen={isModalOpen} setModalOpen={setModalOpen} />
       </Modal>
-      <Header isModalOpen={isModalOpen} setModalOpen={setModalOpen} />
+      <Header isModalOpen={isModalOpen} setModalOpen={setModalOpen} filters={filters} />
       <Main filters={filters}/>
       <Footer />
     </div>

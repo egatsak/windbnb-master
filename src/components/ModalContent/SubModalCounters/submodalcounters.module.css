@@ -1,9 +1,35 @@
 .wrapper {
   opacity: 0;
-  display: flex;
-  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+padding-left: 30%;
+overflow: hidden;
 }
 
 .wrapper.active {
   opacity: 1;
+}
+.counterWrapper {
+
+}
+.labelsWrapper {
+
+}
+.boldLabel {
+  margin: 0;
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  color: #333333;
+}
+.smallLabel {
+  margin: 0;
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #BDBDBD;
 }

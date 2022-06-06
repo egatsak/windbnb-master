@@ -1,9 +1,30 @@
 .wrapper {
   opacity: 0;
   display: flex;
+  flex: 0 0 28%;
   justify-content: flex-start;
 }
 
 .wrapper.active {
   opacity: 1;
+}
+
+.ul {
+/*   flex-wrap: wrap; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 30px;
+  justify-content: space-around;
+}
+
+.li {
+  margin-top: 20px;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  /* identical to box height */
+  color: #4f4f4f;
 }

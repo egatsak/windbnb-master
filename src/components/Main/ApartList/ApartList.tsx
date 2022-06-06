@@ -8,17 +8,18 @@ import styles from "./apartlist.module.css";
 
 type Props = {
   aparts: IApart[];
-}
+};
 
 const ApartList: React.FC<Props> = ({ aparts }) => {
-  return ( <>
+  return (
     <ul className={styles.list}>
-        {aparts.map((apart) => (
+      {aparts.map((apart) => (
         <li className={styles.li} key={apart.id}>
           <Card apart={apart} />
         </li>
-      ))}</ul>
-    </> );
+      ))}
+    </ul>
+  );
 };
 
 export default ApartList;
