@@ -48,7 +48,7 @@ const ModalContent: React.FC<Props> = ({
             Location
           </label>
           <input
-            className={styles.cityInput}
+            className={isCityTabOpen?`${styles.cityInput} ${styles.active}`: styles.cityInput}
             id="inputCity"
             value={filters.city}
             type="text"
