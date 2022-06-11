@@ -23,6 +23,7 @@ const Header: FC<IHeaderProps> = ({ isModalOpen, setModalOpen, filters }) => {
         <input
           className={styles.inputCity}
           value={(filters.city.length>0?filters.city:"Helsinki") + ", Finland"}
+          onChange={() => {}}
           type="text"
           placeholder="Helsinki, Finland"
         />
@@ -33,6 +34,7 @@ const Header: FC<IHeaderProps> = ({ isModalOpen, setModalOpen, filters }) => {
               ? filters.guests + filters.kids + " guests"
               : "Add guests"
           }
+          onChange={() => {}}
           type="text"
           placeholder="Add guests"
         />

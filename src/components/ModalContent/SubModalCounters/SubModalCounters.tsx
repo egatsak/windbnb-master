@@ -28,14 +28,14 @@ const SubModalCounters: React.FC<Props> = ({
       }
     >
       <div className={styles.counterWrapper}>
-        <div className={styles.labelsWrapper}>
+        <div>
           <p className={styles.boldLabel}>Adults</p>
           <p className={styles.smallLabel}>Ages 13 or above</p>
         </div>
         <Counter filters={filters} setFilters={setFilters} />
       </div>
       <div className={styles.counterWrapper}>
-        <div className={styles.labelsWrapper}>
+        <div>
           <p className={styles.boldLabel}>Children</p>
           <p className={styles.smallLabel}>Ages 2-12</p>
         </div>

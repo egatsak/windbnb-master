@@ -24,7 +24,6 @@
 .superHost {
   margin-right: 11px;
   display: inline-block;
-  box-sizing: border-box;
   border: 1px solid #4f4f4f;
   border-radius: 12px;
   /*   width: fit-content; */
@@ -60,7 +59,7 @@
 }
 
 .title {
-    margin-top: 5px;
+  margin-top: 5px;
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 600;

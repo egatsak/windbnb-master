@@ -43,7 +43,10 @@ const ModalContent: React.FC<Props> = ({
   return (
     <div>
       <div className={styles.formWrapper}>
-        <form onSubmit={onSubmitHandler}>
+        <form onSubmit={onSubmitHandler} className={styles.form}>
+          <label htmlFor="inputCity" className={styles.labelcity}>
+            Location
+          </label>
           <input
             className={styles.cityInput}
             id="inputCity"
@@ -59,10 +62,15 @@ const ModalContent: React.FC<Props> = ({
               setFilters((prev) => ({ ...prev, city: e.target.value }));
             }}
           />
+          <div className={styles.guestInputWrapper}>
+          <label htmlFor="inputGuests" className={styles.labelguests}>
+            Guests
+          </label>
           <input
             id="inputGuests"
             className={styles.guestInput}
             type="text"
+            onChange={() => {}}
             placeholder="Add guests"
             value={
               filters.guests + filters.kids > 0
@@ -74,11 +82,18 @@ const ModalContent: React.FC<Props> = ({
               setGuestsTabOpen(true);
             }}
           />
-          <input type="submit" />
+          </div>
+          <input className={styles.buttonWrapper} type="submit" />
         </form>
       </div>
       {isCityTabOpen && (
-        <SubModalCity filters={filters} isCityTabOpen={isCityTabOpen} />
+        <SubModalCity
+          filters={filters}
+          setFilters={setFilters}
+          isCityTabOpen={isCityTabOpen}
+          setCityTabOpen={setCityTabOpen}
+          setGuestsTabOpen={setGuestsTabOpen}
+        />
       )}
       {isGuestsTabOpen && (
         <SubModalCounters
