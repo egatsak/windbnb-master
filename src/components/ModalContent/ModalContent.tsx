@@ -10,45 +10,49 @@ import styles from "./modalcontent.module.css";
 type Props = {
   filters: ICardProps;
   setFilters: React.Dispatch<React.SetStateAction<ICardProps>>;
-  isModalOpen: boolean;
   setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const ModalContent: React.FC<Props> = ({
   filters,
   setFilters,
-  isModalOpen,
   setModalOpen,
 }) => {
   const [isCityTabOpen, setCityTabOpen] = useState<boolean>(true);
   const [isGuestsTabOpen, setGuestsTabOpen] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
-  const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
+  const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     if (
       !Array.from(citiesSet).some(
-        (city) =>
-          city.slice(0, filters.city.length).toLowerCase() ===
-          filters.city.toLowerCase()
+        (city) => city.toLowerCase() === filters.city.toLowerCase()
       )
     ) {
-      console.log("incorrect city!");
+      setErrorMessage("Incorrect city!");
     } else if (filters.city === "" || filters.guests === 0) {
-      console.log("empty input!");
+      setErrorMessage("Please select city and number of guests!");
+      console.log(errorMessage);
     } else {
+      console.log(errorMessage);
+      setErrorMessage("");
       setModalOpen(false);
     }
   };
 
   return (
-    <div>
+    <div className={styles.modalContentWrapper}>
       <div className={styles.formWrapper}>
         <form onSubmit={onSubmitHandler} className={styles.form}>
           <label htmlFor="inputCity" className={styles.labelcity}>
             Location
           </label>
           <input
-            className={isCityTabOpen?`${styles.cityInput} ${styles.active}`: styles.cityInput}
+            className={
+              isCityTabOpen
+                ? `${styles.cityInput} ${styles.active}`
+                : styles.cityInput
+            }
             id="inputCity"
             value={filters.city}
             type="text"
@@ -56,34 +60,51 @@ const ModalContent: React.FC<Props> = ({
             onFocus={() => {
               setCityTabOpen(true);
               setGuestsTabOpen(false);
+              setErrorMessage("");
             }}
+            autoComplete="off"
             onChange={(e) => {
-              console.log(e.target.value);
               setFilters((prev) => ({ ...prev, city: e.target.value }));
+              setErrorMessage("");
             }}
           />
           <div className={styles.guestInputWrapper}>
-          <label htmlFor="inputGuests" className={styles.labelguests}>
-            Guests
-          </label>
-          <input
-            id="inputGuests"
-            className={styles.guestInput}
-            type="text"
-            onChange={() => {}}
-            placeholder="Add guests"
-            value={
-              filters.guests + filters.kids > 0
-                ? `${filters.guests + filters.kids} guests`
-                : "Add guests"
-            }
-            onFocus={() => {
-              setCityTabOpen(false);
-              setGuestsTabOpen(true);
-            }}
-          />
+            <label htmlFor="inputGuests" className={styles.labelguests}>
+              Guests
+            </label>
+            <input
+              id="inputGuests"
+              className={
+                isGuestsTabOpen
+                  ? `${styles.guestInput} ${styles.active}`
+                  : filters.guests + filters.kids === 0
+                  ? `${styles.guestInput} ${styles.zeroGuests}`
+                  : styles.guestInput
+              }
+              type="text"
+              onChange={() => {}}
+              placeholder="Add guests"
+              value={
+                filters.guests + filters.kids === 0
+                  ? "Add guests"
+                  : filters.guests + filters.kids === 1
+                  ? `1 guest`
+                  : `${filters.guests + filters.kids} guests`
+              }
+              readOnly
+              onFocus={() => {
+                setCityTabOpen(false);
+                setGuestsTabOpen(true);
+              }}
+            />
           </div>
-          <input className={styles.buttonWrapper} type="submit" />
+          <div className={styles.buttonWrapper}>
+            <input
+              className={styles.buttonSubmit}
+              type="submit"
+              value="🔍︎ Search"
+            />
+          </div>
         </form>
       </div>
       {isCityTabOpen && (
@@ -101,6 +122,9 @@ const ModalContent: React.FC<Props> = ({
           filters={filters}
           setFilters={setFilters}
         />
+      )}
+      {errorMessage && (
+        <div className={styles.errorMessage}>{errorMessage}</div>
       )}
     </div>
   );

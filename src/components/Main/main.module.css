@@ -1,3 +1,27 @@
 .main {
   flex: 1 0 auto;
 }
+
+.staysWrapper {
+  margin-top: 15px;
+}
+
+.staysInFinland {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  color: #333333;
+}
+
+.staysCount {
+  float: right;
+  padding-top: 10px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #4f4f4f;
+}

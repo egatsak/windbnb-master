@@ -1,29 +1,13 @@
-import React, { FC } from "react";
-import styles from "./card.module.css";
+import { FC } from "react";
+
+import { shortenText } from "../../../../helpers/helpers";
+
 import { IApart } from "../../../../types/types";
 
+import styles from "./card.module.css";
 interface ApartItemProps {
   apart: IApart;
 }
-
-/* interface CardProps {
-  city: string;
-  guests: string;
-  kids: string;
-  children?: React.ReactChild | React.ReactNode;
-} */
-
-const shortenText = (text: string, limit: number) => {
-  if (text.length <= limit) {
-    return text;
-  }
-  text = text.slice(0, limit);
-  const lastSpaceIndex = text.lastIndexOf(" ");
-  if (lastSpaceIndex > 0) {
-    text = text.slice(0, lastSpaceIndex);
-  }
-  return text + "...";
-};
 
 const Card: FC<ApartItemProps> = ({ apart }) => {
   return (
@@ -39,7 +23,9 @@ const Card: FC<ApartItemProps> = ({ apart }) => {
           </div>
         )}
         <span className={styles.type}>
-          {apart.type} {apart.beds && ". " + apart.beds + " beds"}
+          {apart.type}
+          {apart.beds &&
+            ". " + apart.beds + (apart.beds > 1 ? " beds" : " bed")}
         </span>
         <span className={styles.rating}>{apart.rating}</span>
       </div>

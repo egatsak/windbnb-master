@@ -7,6 +7,7 @@ import Modal from "./components/Modal/Modal";
 import ModalContent from "./components/ModalContent/ModalContent";
 
 import { ICardProps } from "./types/types";
+
 import styles from "./App.module.css";
 
 const App: React.FC = () => {
@@ -19,14 +20,19 @@ const App: React.FC = () => {
 
   return (
     <div className={styles.wrapper}>
-      <Modal
+      <Modal isModalOpen={isModalOpen} setModalOpen={setModalOpen}>
+        <ModalContent
+          filters={filters}
+          setFilters={setFilters}
+          setModalOpen={setModalOpen}
+        />
+      </Modal>
+      <Header
         isModalOpen={isModalOpen}
         setModalOpen={setModalOpen}
-      >
-        <ModalContent filters={filters} setFilters={setFilters} isModalOpen={isModalOpen} setModalOpen={setModalOpen} />
-      </Modal>
-      <Header isModalOpen={isModalOpen} setModalOpen={setModalOpen} filters={filters} />
-      <Main filters={filters}/>
+        filters={filters}
+      />
+      <Main filters={filters} />
       <Footer />
     </div>
   );

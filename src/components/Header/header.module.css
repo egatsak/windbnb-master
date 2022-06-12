@@ -26,6 +26,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
+  outline: transparent;
 }
 
 .inputGuests {
@@ -39,6 +40,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
+  outline: transparent;
 }
 
 .inputGuests::placeholder {
@@ -46,5 +48,22 @@
 }
 
 .inputButton {
+  position: relative;
+  min-width: 30px;
   max-width: 53px;
+  background-color: #fff; 
+  outline: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.inputButton::before {
+  content: url(../../assets/search-orange.svg);
+  position: absolute;
+  top: 19px;
+  left: 7px;
+}
+
+.inputButton:active {
+  transform: translate(1px, 1px);
 }

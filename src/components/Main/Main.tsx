@@ -35,6 +35,18 @@ const Main: FC<Props> = ({ filters }) => {
 
   return (
     <main className={styles.main}>
+      <div className={styles.staysWrapper}>
+        <span className={styles.staysInFinland}>Stays in Finland</span>
+        <span className={styles.staysCount}>
+          {aparts.length === 0
+            ? "There are no stays"
+            : aparts.length === 1
+            ? "1 stay"
+            : aparts.length < 13
+            ? aparts.length + " stays"
+            : "12+ stays"}
+        </span>
+      </div>
       <ApartList aparts={aparts} />
     </main>
   );

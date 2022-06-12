@@ -49,6 +49,7 @@
 }
 
 .rating {
+  position: relative;
   float: right;
   font-family: "Montserrat";
   font-style: normal;
@@ -56,6 +57,13 @@
   font-size: 14px;
   line-height: 17px;
   color: #4f4f4f;
+}
+
+.rating::before{
+  content: url(../../../../assets/star.svg);
+  position: absolute;
+  top: -1px;
+  right: 32px;
 }
 
 .title {

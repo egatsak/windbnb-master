@@ -1,9 +1,10 @@
 import React, { FC } from "react";
 
-import Logo from "../../assets/logo.svg";
-import styles from "./header.module.css";
-
 import { ICardProps } from "../../types/types";
+
+import Logo from "../../assets/logo.svg";
+
+import styles from "./header.module.css";
 interface IHeaderProps {
   isModalOpen: boolean;
   setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -22,25 +23,30 @@ const Header: FC<IHeaderProps> = ({ isModalOpen, setModalOpen, filters }) => {
       >
         <input
           className={styles.inputCity}
-          value={(filters.city.length>0?filters.city:"Helsinki") + ", Finland"}
+          value={
+            (filters.city.length > 0 ? filters.city : "Helsinki") + ", Finland"
+          }
           onChange={() => {}}
           type="text"
           placeholder="Helsinki, Finland"
+          readOnly
         />
         <input
           className={styles.inputGuests}
           value={
-            filters.guests + filters.kids > 0
-              ? filters.guests + filters.kids + " guests"
-              : "Add guests"
+            filters.guests + filters.kids === 0
+              ? "Add guests"
+              : filters.guests + filters.kids === 1
+              ? `1 guest`
+              : `${filters.guests + filters.kids} guests`
           }
           onChange={() => {}}
           type="text"
           placeholder="Add guests"
+          readOnly
         />
-        <input
+        <button
           className={styles.inputButton}
-          type="button"
           onSubmit={(e) => e.preventDefault()}
         />{" "}
       </div>
