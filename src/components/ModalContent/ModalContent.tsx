@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import SubModalCounters from "./SubModalCounters/SubModalCounters";
 import SubModalCity from "./SubModalCity/SubModalCity";
@@ -21,24 +21,35 @@ const ModalContent: React.FC<Props> = ({
   const [isCityTabOpen, setCityTabOpen] = useState<boolean>(true);
   const [isGuestsTabOpen, setGuestsTabOpen] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
-
+  const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false)
   const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    if (
+    if (filters.city === "" || filters.guests === 0) {
+      setShowErrorMessage(true);
+      console.log(showErrorMessage)
+      setErrorMessage("Please select city and number of guests!");
+      console.log(errorMessage);
+    } else if (
       !Array.from(citiesSet).some(
         (city) => city.toLowerCase() === filters.city.toLowerCase()
       )
     ) {
       setErrorMessage("Incorrect city!");
-    } else if (filters.city === "" || filters.guests === 0) {
-      setErrorMessage("Please select city and number of guests!");
+      setShowErrorMessage(true);
       console.log(errorMessage);
+      console.log(showErrorMessage)
     } else {
       console.log(errorMessage);
+      console.log(showErrorMessage)
+      setShowErrorMessage(false);
       setErrorMessage("");
       setModalOpen(false);
     }
   };
+
+  useEffect(()=>{
+
+  })
 
   return (
     <div className={styles.modalContentWrapper}>
@@ -60,11 +71,15 @@ const ModalContent: React.FC<Props> = ({
             onFocus={() => {
               setCityTabOpen(true);
               setGuestsTabOpen(false);
+              console.log(errorMessage)
+              console.log(showErrorMessage)
               setErrorMessage("");
             }}
             autoComplete="off"
             onChange={(e) => {
               setFilters((prev) => ({ ...prev, city: e.target.value }));
+              console.log(errorMessage)
+              console.log(showErrorMessage)
               setErrorMessage("");
             }}
           />
@@ -82,7 +97,6 @@ const ModalContent: React.FC<Props> = ({
                   : styles.guestInput
               }
               type="text"
-              onChange={() => {}}
               placeholder="Add guests"
               value={
                 filters.guests + filters.kids === 0
@@ -123,7 +137,7 @@ const ModalContent: React.FC<Props> = ({
           setFilters={setFilters}
         />
       )}
-      {errorMessage && (
+      {showErrorMessage && (
         <div className={styles.errorMessage}>{errorMessage}</div>
       )}
     </div>
