@@ -1,69 +1,49 @@
-import React from "react";
+import { FC } from "react";
 
 import { ICardProps } from "../../../types/types";
 import { citiesSet } from "../../Main/Main";
+
 import styles from "./submodalcity.module.css";
 
 type Props = {
   filters: ICardProps;
-  isCityTabOpen: boolean;
   setFilters: React.Dispatch<React.SetStateAction<ICardProps>>;
   setCityTabOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setGuestsTabOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const SubModalCity: React.FC<Props> = ({
-  isCityTabOpen,
+const SubModalCity: FC<Props> = ({
   filters,
   setFilters,
   setCityTabOpen,
   setGuestsTabOpen,
 }) => {
-  /*   const liClickHandler = ():void => {
-    )
-  }
-   */
+  const { city } = filters;
+
+  const mapCallback = (city: string): React.ReactNode => {
+    return (
+      <li
+        key={city}
+        className={styles.li}
+        onClick={() => {
+          setFilters((prev) => ({ ...prev, city: city }));
+          setCityTabOpen(false);
+          setGuestsTabOpen(true);
+        }}
+      >
+        {city}, Finland
+      </li>
+    );
+  };
+  
   return (
-    <div
-      className={
-        isCityTabOpen
-          ? `${styles.wrapper} ${styles.active}`
-          : `${styles.wrapper}`
-      }
-    >
+    <div className={styles.wrapper}>
       <ul className={styles.ul}>
-        {filters.city.length === 0 &&
-          Array.from(citiesSet).map((city) => (
-            <li
-              key={city}
-              className={styles.li}
-              onClick={() => {
-                setFilters((prev) => ({ ...prev, city: city }));
-                setCityTabOpen(false);
-                setGuestsTabOpen(true);
-              }}
-            >
-              {city}, Finland
-            </li>
-          ))}
-        {filters.city.length > 0 &&
+        {city.length === 0 && Array.from(citiesSet).map(mapCallback)}
+        {city.length > 0 &&
           Array.from(citiesSet)
-            .filter((city) =>
-              city.toLowerCase().startsWith(filters.city.toLowerCase())
-            )
-            .map((city) => (
-              <li
-                key={city}
-                className={styles.li}
-                onClick={() => {
-                  setFilters((prev) => ({ ...prev, city: city }));
-                  setCityTabOpen(false);
-                  setGuestsTabOpen(true);
-                }}
-              >
-                {city}, Finland
-              </li>
-            ))}
+            .filter((item) => item.toLowerCase().startsWith(city.toLowerCase()))
+            .map(mapCallback)}
       </ul>
     </div>
   );

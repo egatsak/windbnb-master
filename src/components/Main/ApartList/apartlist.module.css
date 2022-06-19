@@ -5,9 +5,3 @@
     padding-left: 0;
     justify-content: space-around;
 }
-
-.li{
-    flex: 0 0 28%;
-    margin-left: 2px;
-    margin-right: 2px;
-}

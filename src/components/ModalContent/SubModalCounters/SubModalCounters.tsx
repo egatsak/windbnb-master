@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 
 import Counter from "./Counter/CounterAdults";
 import CounterKids from "./Counter/CounterKids";
@@ -9,24 +9,14 @@ import styles from "./submodalcounters.module.css";
 
 type Props = {
   isGuestsTabOpen: boolean;
-  children?: React.ReactChild | React.ReactNode;
   filters: ICardProps;
   setFilters: React.Dispatch<React.SetStateAction<ICardProps>>;
+  children?: React.ReactNode;
 };
 
-const SubModalCounters: React.FC<Props> = ({
-  isGuestsTabOpen,
-  filters,
-  setFilters,
-}) => {
+const SubModalCounters: FC<Props> = ({ filters, setFilters }) => {
   return (
-    <div
-      className={
-        isGuestsTabOpen
-          ? `${styles.wrapper} ${styles.active}`
-          : `${styles.wrapper}`
-      }
-    >
+    <div className={styles.wrapper}>
       <div className={styles.counterWrapper}>
         <div>
           <p className={styles.boldLabel}>Adults</p>

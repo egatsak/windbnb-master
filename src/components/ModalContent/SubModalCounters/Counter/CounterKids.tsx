@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 
 import { ICardProps } from "../../../../types/types";
 import styles from "./counter.module.css";
@@ -8,34 +8,33 @@ type Props = {
   setFilters: React.Dispatch<React.SetStateAction<ICardProps>>;
 };
 
-const CounterKids: React.FC<Props> = ({ filters, setFilters }) => {
+const CounterKids: FC<Props> = ({ filters, setFilters }) => {
+  const { guests, kids } = filters;
+
+  const minusClickHandler = (): void => {
+    if (kids > 0) {
+      setFilters((filters) => ({ ...filters, kids: kids - 1 }));
+    }
+  };
+
+  const plusClickHandler = (): void => {
+    if (guests > 0) {
+      setFilters((filters) => ({ ...filters, kids: kids + 1 }));
+    } else {
+      setFilters((filters) => ({
+        ...filters,
+        guests: guests + 1,
+        kids: kids + 1,
+      }));
+    }
+  };
   return (
     <div className={styles.counterWrapper}>
-      <button
-        className={styles.button}
-        onClick={() => {
-          if (filters.kids > 0) {
-            setFilters((filters) => ({ ...filters, kids: filters.kids - 1 }));
-          }
-        }}
-      >
-        {"\u2013"} 
+      <button className={styles.button} onClick={minusClickHandler}>
+        {"\u2013"}
       </button>
-      <span className={styles.count}>{filters.kids}</span>
-      <button
-        className={styles.button}
-        onClick={() => {
-          if (filters.guests > 0) {
-            setFilters((filters) => ({ ...filters, kids: filters.kids + 1 }));
-          } else {
-            setFilters((filters) => ({
-              ...filters,
-              guests: filters.guests + 1,
-            }));
-            setFilters((filters) => ({ ...filters, kids: filters.kids + 1 }));
-          }
-        }}
-      >
+      <span className={styles.count}>{kids}</span>
+      <button className={styles.button} onClick={plusClickHandler}>
         +
       </button>
     </div>

@@ -13,6 +13,11 @@
   background: #ffffff;
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
+  text-align: center;
+  font-family: "Mulish";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
 }
 
 .inputCity {
@@ -21,11 +26,6 @@
   border-right: 1px solid #f2f2f2;
   max-width: 138px;
   text-align: center;
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
   outline: transparent;
 }
 
@@ -35,11 +35,6 @@
   border-right: 1px solid #f2f2f2;
   max-width: 106px;
   text-align: center;
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
   outline: transparent;
 }
 
@@ -51,7 +46,7 @@
   position: relative;
   min-width: 30px;
   max-width: 53px;
-  background-color: #fff; 
+  background-color: #fff;
   outline: transparent;
   border: none;
   cursor: pointer;

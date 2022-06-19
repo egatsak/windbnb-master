@@ -10,7 +10,9 @@ interface ApartItemProps {
 }
 
 const Card: FC<ApartItemProps> = ({ apart }) => {
+
   return (
+    <li className={styles.li}>
     <div className={styles.card}>
       <div className={styles.imgWrapper}>
         {" "}
@@ -31,6 +33,7 @@ const Card: FC<ApartItemProps> = ({ apart }) => {
       </div>
       <p className={styles.title}>{shortenText(apart.title, 41)}</p>
     </div>
+    </li>
   );
 };
 

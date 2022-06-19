@@ -2,6 +2,7 @@
   max-width: 395px;
   min-width: 380px;
   margin-bottom: 30px;
+  font-family: "Montserrat";
 }
 
 .imgWrapper {
@@ -26,13 +27,10 @@
   display: inline-block;
   border: 1px solid #4f4f4f;
   border-radius: 12px;
-  /*   width: fit-content; */
 }
 
 .superHostText {
   padding: 7px 10px 6px;
-  font-family: "Montserrat";
-  font-style: normal;
   font-weight: 700;
   font-size: 12px;
   line-height: 15px;
@@ -40,8 +38,6 @@
 }
 
 .type {
-  font-family: "Montserrat";
-  font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
@@ -51,8 +47,6 @@
 .rating {
   position: relative;
   float: right;
-  font-family: "Montserrat";
-  font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
@@ -68,9 +62,13 @@
 
 .title {
   margin-top: 5px;
-  font-family: "Montserrat";
-  font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
+}
+
+.li {
+  flex: 0 0 28%;
+  margin-left: 2px;
+  margin-right: 2px;
 }

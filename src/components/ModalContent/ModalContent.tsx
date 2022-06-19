@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { FC, useState } from "react";
 
 import SubModalCounters from "./SubModalCounters/SubModalCounters";
 import SubModalCity from "./SubModalCity/SubModalCity";
@@ -13,50 +13,34 @@ type Props = {
   setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const ModalContent: React.FC<Props> = ({
-  filters,
-  setFilters,
-  setModalOpen,
-}) => {
+const ModalContent: FC<Props> = ({ filters, setFilters, setModalOpen }) => {
+  const { city, guests, kids } = filters;
   const [isCityTabOpen, setCityTabOpen] = useState<boolean>(true);
   const [isGuestsTabOpen, setGuestsTabOpen] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
-  const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false)
+
   const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    if (filters.city === "" || filters.guests === 0) {
-      setShowErrorMessage(true);
-      console.log(showErrorMessage)
+    if (city === "" || guests === 0) {
       setErrorMessage("Please select city and number of guests!");
-      console.log(errorMessage);
     } else if (
       !Array.from(citiesSet).some(
-        (city) => city.toLowerCase() === filters.city.toLowerCase()
+        (item) => item.toLowerCase() === city.toLowerCase()
       )
     ) {
       setErrorMessage("Incorrect city!");
-      setShowErrorMessage(true);
-      console.log(errorMessage);
-      console.log(showErrorMessage)
     } else {
-      console.log(errorMessage);
-      console.log(showErrorMessage)
-      setShowErrorMessage(false);
       setErrorMessage("");
       setModalOpen(false);
     }
   };
-
-  useEffect(()=>{
-
-  })
 
   return (
     <div className={styles.modalContentWrapper}>
       <div className={styles.formWrapper}>
         <form onSubmit={onSubmitHandler} className={styles.form}>
           <label htmlFor="inputCity" className={styles.labelcity}>
-            Location
+            LOCATION
           </label>
           <input
             className={
@@ -65,45 +49,41 @@ const ModalContent: React.FC<Props> = ({
                 : styles.cityInput
             }
             id="inputCity"
-            value={filters.city}
+            value={city}
             type="text"
             placeholder="Add location"
             onFocus={() => {
               setCityTabOpen(true);
               setGuestsTabOpen(false);
-              console.log(errorMessage)
-              console.log(showErrorMessage)
               setErrorMessage("");
             }}
             autoComplete="off"
             onChange={(e) => {
               setFilters((prev) => ({ ...prev, city: e.target.value }));
-              console.log(errorMessage)
-              console.log(showErrorMessage)
               setErrorMessage("");
             }}
           />
           <div className={styles.guestInputWrapper}>
             <label htmlFor="inputGuests" className={styles.labelguests}>
-              Guests
+              GUESTS
             </label>
             <input
               id="inputGuests"
               className={
                 isGuestsTabOpen
                   ? `${styles.guestInput} ${styles.active}`
-                  : filters.guests + filters.kids === 0
+                  : guests + kids === 0
                   ? `${styles.guestInput} ${styles.zeroGuests}`
                   : styles.guestInput
               }
               type="text"
               placeholder="Add guests"
               value={
-                filters.guests + filters.kids === 0
+                guests + kids === 0
                   ? "Add guests"
-                  : filters.guests + filters.kids === 1
+                  : guests + kids === 1
                   ? `1 guest`
-                  : `${filters.guests + filters.kids} guests`
+                  : `${guests + kids} guests`
               }
               readOnly
               onFocus={() => {
@@ -125,19 +105,18 @@ const ModalContent: React.FC<Props> = ({
         <SubModalCity
           filters={filters}
           setFilters={setFilters}
-          isCityTabOpen={isCityTabOpen}
           setCityTabOpen={setCityTabOpen}
           setGuestsTabOpen={setGuestsTabOpen}
         />
       )}
       {isGuestsTabOpen && (
         <SubModalCounters
-          isGuestsTabOpen={isGuestsTabOpen}
           filters={filters}
           setFilters={setFilters}
+          isGuestsTabOpen={isGuestsTabOpen}
         />
       )}
-      {showErrorMessage && (
+      {errorMessage && (
         <div className={styles.errorMessage}>{errorMessage}</div>
       )}
     </div>

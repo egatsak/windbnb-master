@@ -1,14 +1,14 @@
-import React from "react";
+import { FC } from "react";
 
 import styles from "./modal.module.css";
 
 type Props = {
   isModalOpen: boolean;
   setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  children?: React.ReactChild | React.ReactNode;
+  children?: React.ReactNode;
 };
 
-const Modal: React.FC<Props> = ({ isModalOpen, setModalOpen, children }) => {
+const Modal: FC<Props> = ({ isModalOpen, setModalOpen, children }) => {
   return (
     <div
       className={
@@ -22,4 +22,5 @@ const Modal: React.FC<Props> = ({ isModalOpen, setModalOpen, children }) => {
     </div>
   );
 };
+
 export default Modal;

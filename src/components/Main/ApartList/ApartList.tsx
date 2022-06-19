@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 
 import Card from "./Card/Card";
 
@@ -10,13 +10,11 @@ type Props = {
   aparts: IApart[];
 };
 
-const ApartList: React.FC<Props> = ({ aparts }) => {
+const ApartList: FC<Props> = ({ aparts }) => {
   return (
     <ul className={styles.list}>
       {aparts.map((apart) => (
-        <li className={styles.li} key={apart.id}>
-          <Card apart={apart} />
-        </li>
+        <Card key={apart.id} apart={apart} />
       ))}
     </ul>
   );

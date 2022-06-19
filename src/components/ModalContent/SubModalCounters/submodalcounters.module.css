@@ -1,35 +1,25 @@
 .wrapper {
-  opacity: 0;
   margin-left: 40%;
   margin-right: auto;
-}
-
-.wrapper.active {
-  opacity: 1;
 }
 
 .counterWrapper {
   margin-top: 20px;
   margin-bottom: 8px;
+  font-family: "Mulish";
+  font-size: 14px;
+  line-height: 18px;
 }
 
 .boldLabel {
   margin: 0;
-  font-family: "Mulish";
-  font-style: normal;
   font-weight: 700;
-  font-size: 14px;
-  line-height: 18px;
   color: #333333;
 }
 
 .smallLabel {
   margin: 0;
   margin-bottom: 4px;
-  font-family: "Mulish";
-  font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
   color: #bdbdbd;
 }

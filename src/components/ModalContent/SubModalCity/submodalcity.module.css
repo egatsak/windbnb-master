@@ -1,12 +1,7 @@
 .wrapper {
-  opacity: 0;
   display: flex;
   flex: 0 0 28%;
   justify-content: flex-start;
-}
-
-.wrapper.active {
-  opacity: 1;
 }
 
 .ul {
@@ -22,7 +17,6 @@
 .li {
   margin-top: 20px;
   font-family: "Mulish";
-  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
@@ -31,5 +25,5 @@
 }
 
 .li::marker {
-  content: url(../../../assets/pin.svg)
+  content: url(../../../assets/pin.svg);
 }

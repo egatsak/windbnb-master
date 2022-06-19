@@ -5,13 +5,16 @@ import { ICardProps } from "../../types/types";
 import Logo from "../../assets/logo.svg";
 
 import styles from "./header.module.css";
-interface IHeaderProps {
+
+type HeaderProps = {
+  filters: ICardProps;
   isModalOpen: boolean;
   setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  filters: ICardProps;
-}
+};
 
-const Header: FC<IHeaderProps> = ({ isModalOpen, setModalOpen, filters }) => {
+const Header: FC<HeaderProps> = ({ filters, isModalOpen, setModalOpen }) => {
+  const { city, guests, kids } = filters;
+
   return (
     <div className={styles.header}>
       <span>
@@ -23,10 +26,7 @@ const Header: FC<IHeaderProps> = ({ isModalOpen, setModalOpen, filters }) => {
       >
         <input
           className={styles.inputCity}
-          value={
-            (filters.city.length > 0 ? filters.city : "Helsinki") + ", Finland"
-          }
-          onChange={() => {}}
+          value={(city.length > 0 ? city : "Helsinki") + ", Finland"}
           type="text"
           placeholder="Helsinki, Finland"
           readOnly
@@ -34,11 +34,11 @@ const Header: FC<IHeaderProps> = ({ isModalOpen, setModalOpen, filters }) => {
         <input
           className={styles.inputGuests}
           value={
-            filters.guests + filters.kids === 0
+            guests + kids === 0
               ? "Add guests"
-              : filters.guests + filters.kids === 1
+              : guests + kids === 1
               ? `1 guest`
-              : `${filters.guests + filters.kids} guests`
+              : `${guests + kids} guests`
           }
           onChange={() => {}}
           type="text"
@@ -53,4 +53,5 @@ const Header: FC<IHeaderProps> = ({ isModalOpen, setModalOpen, filters }) => {
     </div>
   );
 };
+
 export default Header;

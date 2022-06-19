@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import {FC, useState } from "react";
 
 import Main from "./components/Main/Main";
 import Header from "./components/Header/Header";
@@ -10,7 +10,7 @@ import { ICardProps } from "./types/types";
 
 import styles from "./App.module.css";
 
-const App: React.FC = () => {
+const App: FC = () => {
   const [filters, setFilters] = useState<ICardProps>({
     city: "",
     guests: 0,
@@ -28,9 +28,9 @@ const App: React.FC = () => {
         />
       </Modal>
       <Header
+        filters={filters}
         isModalOpen={isModalOpen}
         setModalOpen={setModalOpen}
-        filters={filters}
       />
       <Main filters={filters} />
       <Footer />
