@@ -1,0 +1,25 @@
+.wrapper {
+  margin-left: 40%;
+  margin-right: auto;
+}
+
+.counterWrapper {
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-family: "Mulish";
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.boldLabel {
+  margin: 0;
+  font-weight: 700;
+  color: var(--neutral-1);
+}
+
+.smallLabel {
+  margin: 0;
+  margin-bottom: 4px;
+  font-weight: 400;
+  color: var(--neutral-5);
+}
