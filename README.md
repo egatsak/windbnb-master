@@ -8,11 +8,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://https://app.netlify.com/sites/superb-creponne-a1df7b/settings/general">
+    <a href="https://superb-creponne-a1df7b.netlify.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://devchallenges.io/solutions/XFVDum7r3mHj5eUtIYFC">
       Solution
     </a>
     <span> | </span>
