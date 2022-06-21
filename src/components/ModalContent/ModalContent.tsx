@@ -4,12 +4,12 @@ import SubModalCounters from "./SubModalCounters/SubModalCounters";
 import SubModalCity from "./SubModalCity/SubModalCity";
 
 import { citiesSet } from "../Main/Main";
-import { ICardProps } from "../../types/types";
+import { ICard } from "../../types/types";
 import styles from "./modalcontent.module.css";
 
 type Props = {
-  filters: ICardProps;
-  setFilters: React.Dispatch<React.SetStateAction<ICardProps>>;
+  filters: ICard;
+  setFilters: React.Dispatch<React.SetStateAction<ICard>>;
   setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 

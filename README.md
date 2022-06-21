@@ -1,6 +1,6 @@
 <!-- Please update value in the {}  -->
 
-<h1 align="center">{Your project name}</h1>
+<h1 align="center">windbnb</h1>
 
 <div align="center">
    Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
@@ -8,7 +8,7 @@
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
+    <a href="https://https://app.netlify.com/sites/superb-creponne-a1df7b/settings/general">
       Demo
     </a>
     <span> | </span>
@@ -37,28 +37,32 @@
 
 ## Overview
 
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
+![screenshot](https://user-images.githubusercontent.com/103357389/174784699-e34ddc0d-5247-4388-a550-925258fe9c95.JPG)
 
-Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
+### A single-page app for looking for a place to stay
 
-- Where can I see your demo?
-- What was your experience?
-- What have you learned/improved?
-- Your wisdom? :)
+#### a small clone of Airbnb(TM, C, R, etc.)
 
 ### Built With
 
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
 - [React](https://reactjs.org/)
-- [Vue.js](https://vuejs.org/)
-- [Tailwind](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
 
 ## Features
 
 <!-- List the features of your application or follow the template. Don't share the figma file here :) -->
 
 This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/3JFYedSOZqAxYuOCNmYD) was to build an application to complete the given user stories.
+
+User while browsing is able to:
+
+- overview all available stays with their description
+- open modal window with options to select
+- choose city to stay (user can type or select from dropdown)
+- specify number of guests (adults and kids) using clickable counters
+- overview stays filtered according to the options selected
 
 ## How To Use
 
@@ -84,9 +88,12 @@ $ npm start
 - [Steps to replicate a design with only HTML and CSS](https://devchallenges-blogs.web.app/how-to-replicate-design/)
 - [Node.js](https://nodejs.org/)
 - [Marked - a markdown parser](https://github.com/chjj/marked)
+- [uuidv4](https://www.npmjs.com/package/uuidv4)
+
+- [Vadim Lindo](https://github.com/Vadimchesh) - for guidance and mentorship
 
 ## Contact
 
-- Website [your-website.com](https://{your-web-site-link})
-- GitHub [@your-username](https://{github.com/your-usermame})
-- Twitter [@your-twitter](https://{twitter.com/your-username})
+- GitHub [@egatsak](https://github.com/egatsak)
+- LinkedIn [LinkedIn](https://www.linkedin.com/in/yauheni-hatsak-39312023b/)
+- E-mail [greenglaz@gmail.com](mailto:greenglaz@gmail.com)

@@ -1,11 +1,11 @@
 import { FC } from "react";
 
-import { ICardProps } from "../../../../types/types";
+import { ICard } from "../../../../types/types";
 import styles from "./counter.module.css";
 
 type Props = {
-  filters: ICardProps;
-  setFilters: React.Dispatch<React.SetStateAction<ICardProps>>;
+  filters: ICard;
+  setFilters: React.Dispatch<React.SetStateAction<ICard>>;
 };
 
 const CounterKids: FC<Props> = ({ filters, setFilters }) => {

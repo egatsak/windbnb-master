@@ -11,7 +11,7 @@
   font-weight: 700;
   font-size: 24px;
   line-height: 29px;
-  color: #333333;
+  color: var(--neutral-1);
 }
 
 .staysCount {
@@ -20,5 +20,5 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
-  color: #4f4f4f;
+  color: var(--neutral-2);
 }

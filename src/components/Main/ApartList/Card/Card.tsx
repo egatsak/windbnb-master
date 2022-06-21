@@ -5,7 +5,8 @@ import { shortenText } from "../../../../helpers/helpers";
 import { IApart } from "../../../../types/types";
 
 import styles from "./card.module.css";
-interface ApartItemProps {
+
+type ApartItemProps = {
   apart: IApart;
 }
 

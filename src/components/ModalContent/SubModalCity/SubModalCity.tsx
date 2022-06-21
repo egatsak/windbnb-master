@@ -1,13 +1,13 @@
 import { FC } from "react";
 
-import { ICardProps } from "../../../types/types";
+import { ICard } from "../../../types/types";
 import { citiesSet } from "../../Main/Main";
 
 import styles from "./submodalcity.module.css";
 
 type Props = {
-  filters: ICardProps;
-  setFilters: React.Dispatch<React.SetStateAction<ICardProps>>;
+  filters: ICard;
+  setFilters: React.Dispatch<React.SetStateAction<ICard>>;
   setCityTabOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setGuestsTabOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
@@ -35,7 +35,7 @@ const SubModalCity: FC<Props> = ({
       </li>
     );
   };
-  
+
   return (
     <div className={styles.wrapper}>
       <ul className={styles.ul}>

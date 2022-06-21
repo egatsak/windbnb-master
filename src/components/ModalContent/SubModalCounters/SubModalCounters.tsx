@@ -3,14 +3,14 @@ import { FC } from "react";
 import Counter from "./Counter/CounterAdults";
 import CounterKids from "./Counter/CounterKids";
 
-import { ICardProps } from "../../../types/types";
+import { ICard } from "../../../types/types";
 
 import styles from "./submodalcounters.module.css";
 
 type Props = {
   isGuestsTabOpen: boolean;
-  filters: ICardProps;
-  setFilters: React.Dispatch<React.SetStateAction<ICardProps>>;
+  filters: ICard;
+  setFilters: React.Dispatch<React.SetStateAction<ICard>>;
   children?: React.ReactNode;
 };
 

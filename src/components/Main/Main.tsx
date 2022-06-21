@@ -3,13 +3,13 @@ import { v4 as uuidv4 } from "uuid";
 
 import ApartList from "./ApartList/ApartList";
 
-import { IApart, ICardProps } from "../../types/types";
+import { IApart, ICard } from "../../types/types";
 import jsonData from "../../constants/stays.json";
 
 import styles from "./main.module.css";
 
 type Props = {
-  filters: ICardProps;
+  filters: ICard;
 };
 
 const apartsMainArray: IApart[] = [...jsonData];

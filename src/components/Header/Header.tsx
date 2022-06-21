@@ -1,13 +1,13 @@
 import React, { FC } from "react";
 
-import { ICardProps } from "../../types/types";
+import { ICard } from "../../types/types";
 
 import Logo from "../../assets/logo.svg";
 
 import styles from "./header.module.css";
 
 type HeaderProps = {
-  filters: ICardProps;
+  filters: ICard;
   isModalOpen: boolean;
   setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };

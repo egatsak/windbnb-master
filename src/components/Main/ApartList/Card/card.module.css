@@ -25,7 +25,7 @@
 .superHost {
   margin-right: 11px;
   display: inline-block;
-  border: 1px solid #4f4f4f;
+  border: 1px solid var(--neutral-2);
   border-radius: 12px;
 }
 
@@ -41,7 +41,7 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
-  color: #828282;
+  color: var(--neutral-3);
 }
 
 .rating {
@@ -50,10 +50,10 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
-  color: #4f4f4f;
+  color: var(--neutral-2);
 }
 
-.rating::before{
+.rating::before {
   content: url(../../../../assets/star.svg);
   position: absolute;
   top: -1px;
